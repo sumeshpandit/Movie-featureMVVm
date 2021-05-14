@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private fun getMostPopularMovie(binding: ActivityMainBinding){
         viewModel.getMovie().observe(this, Observer { mostPopularMovieResponse ->
             binding.recyclerView.adapter= MovieAdapter(mostPopularMovieResponse.movies)
-            Toast.makeText(baseContext, "Size: " + mostPopularMovieResponse.movies.size.toString(),
+            Toast.makeText(baseContext, "No. of Movies: " + mostPopularMovieResponse.movies.size.toString(),
                 Toast.LENGTH_SHORT).show()
         } )
     }
