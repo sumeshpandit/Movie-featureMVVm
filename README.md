@@ -1,6 +1,7 @@
 # Movie-featureMVVm
 
 MVVM architecture
+
 Api calling (TMDB)
 Retrofit
 Data binding
