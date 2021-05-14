@@ -1,9 +1,10 @@
-package com.sumeshpandit.movie_featuremvvm
+package com.sumeshpandit.movie_featuremvvm.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.sumeshpandit.movie_featuremvvm.model.MovieData
 import com.sumeshpandit.movie_featuremvvm.databinding.MovieItemBinding
 
 
