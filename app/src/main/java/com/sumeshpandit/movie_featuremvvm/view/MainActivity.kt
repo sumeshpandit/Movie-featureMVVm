@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding=DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         myViewModel=getViewModel()
-        ViewModelProvider(this)[MovieViewModel::class.java]
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         getMostPopularMovie(binding)
     }
