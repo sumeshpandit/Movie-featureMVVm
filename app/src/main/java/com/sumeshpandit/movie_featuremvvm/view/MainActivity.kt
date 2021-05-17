@@ -10,22 +10,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sumeshpandit.movie_featuremvvm.viewModel.MovieViewModel
 import com.sumeshpandit.movie_featuremvvm.R
 import com.sumeshpandit.movie_featuremvvm.databinding.ActivityMainBinding
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: MovieViewModel
+    private var myViewModel: MovieViewModel = getViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding=DataBindingUtil.setContentView<ActivityMainBinding>(this,
-            R.layout.activity_main
-        )
-        viewModel= ViewModelProvider(this)[MovieViewModel::class.java]
+        val binding=DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        myViewModel= ViewModelProvider(this)[MovieViewModel::class.java]
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         getMostPopularMovie(binding)
     }
 
     private fun getMostPopularMovie(binding: ActivityMainBinding){
-        viewModel.getMovie().observe(this, Observer { mostPopularMovieResponse ->
+        myViewModel.getMovie().observe(this, Observer { mostPopularMovieResponse ->
             binding.recyclerView.adapter= MovieAdapter(mostPopularMovieResponse.movies)
             Toast.makeText(baseContext, "No. of Movies: " + mostPopularMovieResponse.movies.size.toString(),
                 Toast.LENGTH_SHORT).show()

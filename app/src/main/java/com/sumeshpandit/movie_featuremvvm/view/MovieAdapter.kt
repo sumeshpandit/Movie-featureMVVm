@@ -4,13 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.sumeshpandit.movie_featuremvvm.model.MovieData
 import com.sumeshpandit.movie_featuremvvm.databinding.MovieItemBinding
+import com.sumeshpandit.movie_featuremvvm.model.MovieData
 
+const val ImageBaseUrl = "https://image.tmdb.org/t/p/w500/"
 
-class MovieAdapter(
-    private val movies : List<MovieData>
-) : RecyclerView.Adapter<MovieAdapter.MyViewHolder>(){
+class MovieAdapter( private val movies : List<MovieData>) : RecyclerView.Adapter<MovieAdapter.MyViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -21,8 +20,6 @@ class MovieAdapter(
 
     class MyViewHolder(private val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        private val ImageBaseUrl = "https://image.tmdb.org/t/p/w500/"
-
         fun bindMovie(movie: MovieData) {
             binding.movieTitle.text=movie.title
             binding.movieReleaseDate.text=movie.release
@@ -30,6 +27,7 @@ class MovieAdapter(
             binding.executePendingBindings()
         }
     }
+
     override fun getItemCount(): Int = movies.size
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
