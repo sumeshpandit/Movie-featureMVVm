@@ -8,7 +8,7 @@ import org.koin.dsl.module
 
 val appModule = module {
 
-    single<RepositoryService> { MovieRepository() }
+    single <RepositoryService> { MovieRepository() }
 
-    viewModel { MovieViewModel(get()) }
+    viewModel { MovieViewModel() }
 }

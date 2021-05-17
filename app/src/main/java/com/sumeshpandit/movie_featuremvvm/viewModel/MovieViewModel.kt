@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.sumeshpandit.movie_featuremvvm.model.MovieResponse
 
-class MovieViewModel(val movieRepository: MovieRepository): ViewModel() {
+class MovieViewModel: ViewModel() {
 
-    fun getMovie(): LiveData<MovieResponse> = movieRepository.getPopularMovies()
+    private var movieRepository= MovieRepository()
 
+    fun getMovie():LiveData<MovieResponse>{
+        return movieRepository.getPopularMovies()
+    }
 }
