@@ -11,10 +11,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MovieRepository: RepositoryService {
+class MovieRepository {
     private var apiService: ApiService = MovieApiClient.getInstance().create(ApiService::class.java)
 
-    override fun getPopularMovies(): LiveData<MovieResponse>{
+    fun getPopularMovies(): LiveData<MovieResponse>{
        val movieData: MutableLiveData<MovieResponse> = MutableLiveData()
         apiService.getMovieList().enqueue(object: Callback<MovieResponse>{
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
