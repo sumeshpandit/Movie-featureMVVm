@@ -12,7 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MovieRepository: RepositoryService {
-    var apiService: ApiService = MovieApiClient.getInstance().create(ApiService::class.java)
+    private var apiService: ApiService = MovieApiClient.getInstance().create(ApiService::class.java)
 
     override fun getPopularMovies(): LiveData<MovieResponse>{
        val movieData: MutableLiveData<MovieResponse> = MutableLiveData()

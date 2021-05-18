@@ -60,5 +60,4 @@ dependencies {
     implementation "io.insert-koin:koin-android-ext:3.0.1"
     implementation "io.insert-koin:koin-androidx-workmanager:3.0.1"
 
-
 }

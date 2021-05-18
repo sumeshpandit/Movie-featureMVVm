@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding=DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         getMostPopularMovie(binding)
     }
@@ -30,5 +29,4 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT).show()
         } )
     }
-
 }
