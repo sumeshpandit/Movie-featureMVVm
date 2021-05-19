@@ -16,7 +16,7 @@ import retrofit2.Response
 class MovieRepository: KoinComponent {
     private val movieApiClient: MovieApiClient by inject()
 
-    fun getPopularMovies(): LiveData<MovieResponse>{
+    fun getPopularMovies(): LiveData<MovieResponse> {
         val movieData: MutableLiveData<MovieResponse> = MutableLiveData()
         val apiService: ApiService = movieApiClient.getInstance().create(ApiService::class.java)
 
