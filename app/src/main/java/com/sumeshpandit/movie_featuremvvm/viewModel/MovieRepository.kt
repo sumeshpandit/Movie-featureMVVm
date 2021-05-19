@@ -7,15 +7,19 @@ import com.sumeshpandit.movie_featuremvvm.api.ApiService
 import com.sumeshpandit.movie_featuremvvm.api.MovieApiClient
 import com.sumeshpandit.movie_featuremvvm.model.MovieResponse
 import com.sumeshpandit.movie_featuremvvm.view.MainActivity
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MovieRepository {
-    private var apiService: ApiService = MovieApiClient.getInstance().create(ApiService::class.java)
+class MovieRepository: KoinComponent {
+    private val movieApiClient: MovieApiClient by inject()
 
     fun getPopularMovies(): LiveData<MovieResponse>{
-       val movieData: MutableLiveData<MovieResponse> = MutableLiveData()
+        val movieData: MutableLiveData<MovieResponse> = MutableLiveData()
+        val apiService: ApiService = movieApiClient.getInstance().create(ApiService::class.java)
+
         apiService.getMovieList().enqueue(object: Callback<MovieResponse>{
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 movieData.value=response.body()
@@ -25,7 +29,6 @@ class MovieRepository {
                 movieData.value=null
                 Toast.makeText(MainActivity().baseContext,"Wrong",Toast.LENGTH_SHORT).show()
             }
-
         })
         return movieData
     }

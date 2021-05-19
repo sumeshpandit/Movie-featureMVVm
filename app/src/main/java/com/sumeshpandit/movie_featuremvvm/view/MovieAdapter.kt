@@ -24,7 +24,6 @@ class MovieAdapter( private val movies : List<MovieData>) : RecyclerView.Adapter
             binding.movieTitle.text=movie.title
             binding.movieReleaseDate.text=movie.release
             Glide.with(binding.root).load(ImageBaseUrl + movie.poster).into(binding.moviePoster)
-            binding.executePendingBindings()
         }
     }
 
