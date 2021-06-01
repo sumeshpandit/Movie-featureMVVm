@@ -1,4 +1,4 @@
-package com.sumeshpandit.movie_featuremvvm.model
+package com.sumeshpandit.movie_featuremvvm.domain.model
 
 import com.google.gson.annotations.SerializedName
 
