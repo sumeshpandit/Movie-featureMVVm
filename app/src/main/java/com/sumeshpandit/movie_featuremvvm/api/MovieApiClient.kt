@@ -3,9 +3,8 @@ package com.sumeshpandit.movie_featuremvvm.api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MovieApiClient {
+object MovieApiClient {
 
-    companion object{
         private const val BASE_URL = "https://api.themoviedb.org"
         private var retrofit : Retrofit? = null
 
@@ -18,5 +17,4 @@ class MovieApiClient {
             }
             return retrofit!!
         }
-    }
 }

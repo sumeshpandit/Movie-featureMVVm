@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Movie-featureMVVm</string>
-    <string name="popular_movies">Popular Movies</string>
+    <string name="trending_movies">Trending</string>
+    <string name="now_playing_movies">Now Playing</string>
     <string name="movie_poster">Movie Poster</string>
 </resources>

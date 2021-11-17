@@ -3,33 +3,51 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".view.MainActivity">
-
-        <TextView
-            android:id="@+id/heading"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/relative_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/popular_movies"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:background="@color/purple_200"
-            android:gravity="center_horizontal" />
+            tools:context=".view.MainActivity">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/heading">
+            <TextView
+                android:id="@+id/trending_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/trending_movies"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="#D1B4BE"
+                android:gravity="center_horizontal" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
+                android:id="@+id/rv_trending"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/trending_heading" />
 
-        </ScrollView>
+            <TextView
+                android:id="@+id/now_playing_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/now_playing_movies"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:background="#D1B4BE"
+                android:gravity="center_horizontal"
+                android:layout_below="@id/rv_trending"
+                android:layout_marginTop="10dp"/>
 
-    </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_now_playing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/now_playing_heading"/>
+        </RelativeLayout>
+
+    </ScrollView>
 </layout>
